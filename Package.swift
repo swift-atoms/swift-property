@@ -13,6 +13,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Property", targets: ["Property"]),
+        .library(name: "Property Standard Library Integration", targets: ["Property Standard Library Integration"]),
+        .library(name: "Property Foundation Library Integration", targets: ["Property Foundation Library Integration"]),
         .library(name: "Property Test Support", targets: ["Property Test Support"]),
     ],
     dependencies: [
@@ -36,48 +38,23 @@ let package = Package(
                 .product(name: "Carrier", package: "swift-carrier"),
                 .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Tagged", package: "swift-tagged"),
-            ]
+            ],
+            path: "Sources/Property"
         ),
-        .testTarget(
-            name: "Property Tests",
+        .target(
+            name: "Property Standard Library Integration",
             dependencies: [
                 .target(name: "Property"),
-                .target(name: "Property Test Support"),
-            ]
+            ],
+            path: "Sources/Property Standard Library Integration"
         ),
-        .testTarget(
-            name: "Property Carrier Tests",
+        .target(
+            name: "Property Foundation Library Integration",
             dependencies: [
                 .target(name: "Property"),
-            ]
-        ),
-        .testTarget(
-            name: "Property Typed Tests",
-            dependencies: [
-                .target(name: "Property"),
-                .target(name: "Property Test Support"),
-            ]
-        ),
-        .testTarget(
-            name: "Property Consume Tests",
-            dependencies: [
-                .target(name: "Property"),
-                .target(name: "Property Test Support"),
-            ]
-        ),
-        .testTarget(
-            name: "Property Inout Tests",
-            dependencies: [
-                .target(name: "Property"),
-                .target(name: "Property Test Support"),
-            ]
-        ),
-        .testTarget(
-            name: "Property Borrow Tests",
-            dependencies: [
-                .target(name: "Property"),
-                .target(name: "Property Test Support"),
-            ]
+                .target(name: "Property Standard Library Integration"),
+            ],
+            path: "Sources/Property Foundation Library Integration"
         ),
         .target(
             name: "Property Test Support",
@@ -86,12 +63,22 @@ let package = Package(
             ],
             path: "Tests/Support"
         ),
+        .testTarget(
+            name: "Property Tests",
+            dependencies: [
+                .target(name: "Property"),
+                .target(name: "Property Test Support"),
+                .target(name: "Property Standard Library Integration"),
+                .target(name: "Property Foundation Library Integration"),
+            ],
+            path: "Tests/Property Tests"
+        ),
     ],
     swiftLanguageModes: [.v6]
 )
 
-for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    let ecosystem: [SwiftSetting] = [
+for target in package.targets {
+    target.swiftSettings = [
         .strictMemorySafety(),
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
@@ -100,8 +87,4 @@ for target in package.targets where ![.system, .binary, .plugin, .macro].contain
         .enableExperimentalFeature("Lifetimes"),
         .enableUpcomingFeature("InferIsolatedConformances"),
     ]
-
-    let package: [SwiftSetting] = []
-
-    target.swiftSettings = (target.swiftSettings ?? []) + ecosystem + package
 }
