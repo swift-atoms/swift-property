@@ -3,13 +3,13 @@ import Property_Test_Support
 import Testing
 
 @Suite
-struct `Property.Borrow.Typed.Valued Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Valued borrowed properties bind their value parameter` {
+    @Suite struct `Valued borrowed accessors preserve their value generic and immutable base` {}
+    @Suite struct `Valued property borrowing leaves its base unchanged` {}
+    @Suite struct `No valued borrowed property integration cases are defined` {}
 }
 
-extension `Property.Borrow.Typed.Valued Tests`.Unit {
+extension `Valued borrowed properties bind their value parameter`.`Valued borrowed accessors preserve their value generic and immutable base` {
 
     @Test
     func `valued borrow accessor binds value generic in extension where-clause`() {
@@ -20,7 +20,7 @@ extension `Property.Borrow.Typed.Valued Tests`.Unit {
     }
 
     @Test
-    func `borrowing init from let-bound valued base`() {
+    func `Valued borrowed property construction accepts an immutable base`() {
         let inline = Slice<Int>.Inline<5>(count: 3)
 
         let accessor = Property::Property<
@@ -34,7 +34,7 @@ extension `Property.Borrow.Typed.Valued Tests`.Unit {
     }
 }
 
-extension `Property.Borrow.Typed.Valued Tests`.`Edge Case` {
+extension `Valued borrowed properties bind their value parameter`.`Valued property borrowing leaves its base unchanged` {
 
     @Test
     func `valued borrow accessor does not mutate`() {

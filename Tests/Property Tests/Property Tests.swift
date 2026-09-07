@@ -6,16 +6,16 @@ private typealias _PropertyIsCopyable = Require.Copyable<Property::Property<Phan
 private typealias _PropertyIsSendable = Require.Sendable<Property::Property<Phantom, Int>>
 
 @Suite
-struct `Property Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Owned property access preserves values and phantom domains` {
+    @Suite struct `Owned properties retain underlying values and nested tags` {}
+    @Suite struct `No owned property boundary cases are defined` {}
+    @Suite struct `Property operations preserve domain isolation and mutation order` {}
 }
 
-extension `Property Tests`.Unit {
+extension `Owned property access preserves values and phantom domains`.`Owned properties retain underlying values and nested tags` {
 
     @Test
-    func `owned property basic usage`() {
+    func `Owned property construction preserves its base value`() {
         var property = Property::Property<Phantom, Int>(42)
         #expect(property.base == 42)
 
@@ -31,10 +31,10 @@ extension `Property Tests`.Unit {
     }
 }
 
-extension `Property Tests`.Integration {
+extension `Owned property access preserves values and phantom domains`.`Property operations preserve domain isolation and mutation order` {
 
     @Test
-    func `phantom tag extensions isolated per tag`() {
+    func `Phantom tag extensions remain isolated to their tag`() {
         var container = Container(1, 2, 3)
 
         container.push.back(4)
@@ -57,7 +57,7 @@ extension `Property Tests`.Integration {
     }
 
     @Test
-    func `multiple operations in sequence`() {
+    func `Sequential property operations preserve the resulting state`() {
         var container = Container<Int>()
 
         container.push.back(1)

@@ -3,16 +3,16 @@ import Property_Test_Support
 import Testing
 
 @Suite
-struct `Property.Inout Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Inout properties preserve pointer reads and mutations` {
+    @Suite struct `Inout property access supports stored values and stable borrowing` {}
+    @Suite struct `No inout property boundary cases are defined` {}
+    @Suite struct `Inout property pointers expose tuple elements` {}
 }
 
-extension `Property.Inout Tests`.Unit {
+extension `Inout properties preserve pointer reads and mutations`.`Inout property access supports stored values and stable borrowing` {
 
     @Test
-    func `pointer to stored property`() {
+    func `Property pointers read stored property values`() {
         let box = Box(value: 77)
 
         let result = unsafe Property::Property<Box.Inspect, Box>.pointer(
@@ -25,7 +25,7 @@ extension `Property.Inout Tests`.Unit {
     }
 
     @Test
-    func `pointer mutating variant`() {
+    func `Mutating property pointers write through to the stored value`() {
         var scalar = 50
 
         unsafe Property::Property<Box.Inspect, Box>.pointer(
@@ -48,7 +48,7 @@ extension `Property.Inout Tests`.Unit {
     }
 
     @Test
-    func `unsafe borrowing init: single read across module boundary`() {
+    func `Unsafe borrowed property construction supports a read across module boundaries`() {
 
         let box = Box(value: 321)
         let accessor = unsafe Property::Property<Box.Inspect, Box>.Inout(box)
@@ -57,7 +57,7 @@ extension `Property.Inout Tests`.Unit {
     }
 
     @Test
-    func `unsafe borrowing init: multiple reads stable across module boundary`() {
+    func `Unsafe borrowed property construction preserves repeated reads across module boundaries`() {
 
         let box = Box(value: 654)
         let accessor = unsafe Property::Property<Box.Inspect, Box>.Inout(box)
@@ -68,10 +68,10 @@ extension `Property.Inout Tests`.Unit {
     }
 }
 
-extension `Property.Inout Tests`.Integration {
+extension `Inout properties preserve pointer reads and mutations`.`Inout property pointers expose tuple elements` {
 
     @Test
-    func `pointer to tuple element`() {
+    func `Property pointers expose tuple contents`() {
         let box = Box(value: 10)
 
         let sum = unsafe Property::Property<Box.Inspect, Box>.pointer(

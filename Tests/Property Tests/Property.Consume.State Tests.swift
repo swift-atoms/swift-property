@@ -7,10 +7,10 @@ import Testing
 private typealias _StateIsSendable = Require.Sendable<Property::Property<Phantom, Int>.Consume<Int>.State>
 
 @Suite
-struct `Property.Consume.State Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Shared property state keeps consumption and stored values consistent` {
+    @Suite struct `Consumption state preserves its initial value and Sendable constraint` {}
+    @Suite struct `Concurrent consumption never exposes a torn shared state` {}
+    @Suite struct `Consumption is visible to accessors sharing the same state` {}
 }
 
 private func `F-003 torn-state mega-trial`(groups: Int, readerCount: Int, spin: Int) -> Bool {
@@ -49,7 +49,7 @@ private func `F-003 torn-state mega-trial`(groups: Int, readerCount: Int, spin: 
     return tornObserved.load(ordering: .relaxed)
 }
 
-extension `Property.Consume.State Tests`.`Edge Case` {
+extension `Shared property state keeps consumption and stored values consistent`.`Concurrent consumption never exposes a torn shared state` {
 
     @Test
     func
@@ -66,7 +66,7 @@ extension `Property.Consume.State Tests`.`Edge Case` {
     }
 }
 
-extension `Property.Consume.State Tests`.Unit {
+extension `Shared property state keeps consumption and stored values consistent`.`Consumption state preserves its initial value and Sendable constraint` {
 
     @Test
     func `state init stores base and starts not consumed`() {
@@ -96,7 +96,7 @@ extension `Property.Consume.State Tests`.Unit {
     }
 }
 
-extension `Property.Consume.State Tests`.Integration {
+extension `Shared property state keeps consumption and stored values consistent`.`Consumption is visible to accessors sharing the same state` {
 
     @Test
     func `shared state reflects consumption across Consume instances`() {

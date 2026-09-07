@@ -13,13 +13,13 @@ final class NonSendableElement {
 }
 
 @Suite
-struct `Property.Consume Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Consuming properties transfer ownership and record consumption` {
+    @Suite struct `Consuming property state supports borrowing restoration and one transfer` {}
+    @Suite struct `Consuming properties preserve restoration and consumption invariants` {}
+    @Suite struct `Property accessors preserve borrowing and consuming ownership paths` {}
 }
 
-extension `Property.Consume Tests`.Unit {
+extension `Consuming properties transfer ownership and record consumption`.`Consuming property state supports borrowing restoration and one transfer` {
 
     @Test
     func `borrow returns base when not consumed`() {
@@ -93,7 +93,7 @@ extension `Property.Consume Tests`.Unit {
     }
 }
 
-extension `Property.Consume Tests`.`Edge Case` {
+extension `Consuming properties transfer ownership and record consumption`.`Consuming properties preserve restoration and consumption invariants` {
 
     @Test
     func `restore is idempotent on non-consumed state`() {
@@ -126,7 +126,7 @@ extension `Property.Consume Tests`.`Edge Case` {
     }
 }
 
-extension `Property.Consume Tests`.Integration {
+extension `Consuming properties transfer ownership and record consumption`.`Property accessors preserve borrowing and consuming ownership paths` {
 
     @Test
     func `borrow path via accessor preserves container`() {

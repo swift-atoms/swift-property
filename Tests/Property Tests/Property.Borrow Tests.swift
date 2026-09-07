@@ -3,16 +3,16 @@ import Property_Test_Support
 import Testing
 
 @Suite
-struct `Property.Borrow Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Borrowed properties lend their underlying values without mutation` {
+    @Suite struct `Borrowed property construction supports mutable and immutable bindings` {}
+    @Suite struct `Repeated property borrowing preserves the original value` {}
+    @Suite struct `No borrowed property integration cases are defined` {}
 }
 
-extension `Property.Borrow Tests`.Unit {
+extension `Borrowed properties lend their underlying values without mutation`.`Borrowed property construction supports mutable and immutable bindings` {
 
     @Test
-    func `borrow accessor basic usage`() {
+    func `Borrowed property access exposes the base value`() {
         var box = Box(value: 42)
 
         #expect(box.inspect.current == 42)
@@ -20,7 +20,7 @@ extension `Property.Borrow Tests`.Unit {
     }
 
     @Test
-    func `borrowing init with let binding`() {
+    func `Borrowed property construction accepts an immutable binding`() {
         let box = Box(value: 42)
 
         #expect(box.borrow.current == 42)
@@ -28,7 +28,7 @@ extension `Property.Borrow Tests`.Unit {
     }
 }
 
-extension `Property.Borrow Tests`.`Edge Case` {
+extension `Borrowed properties lend their underlying values without mutation`.`Repeated property borrowing preserves the original value` {
 
     @Test
     func `borrow accessor does not mutate`() {

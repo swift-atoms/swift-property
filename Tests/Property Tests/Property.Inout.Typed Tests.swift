@@ -3,16 +3,16 @@ import Property_Test_Support
 import Testing
 
 @Suite
-struct `Property.Inout.Typed Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Typed inout properties write mutations through to their base` {
+    @Suite struct `Typed inout property access preserves reads and writes` {}
+    @Suite struct `Sequential typed property mutations persist independently` {}
+    @Suite struct `Condition driven draining terminates through an inout property view` {}
 }
 
-extension `Property.Inout.Typed Tests`.Unit {
+extension `Typed inout properties write mutations through to their base`.`Typed inout property access preserves reads and writes` {
 
     @Test
-    func `inout typed basic usage`() {
+    func `Typed inout property access exposes the base value`() {
         var slice = Slice<Int>(count: 5)
         #expect(slice.access.size == 5)
     }
@@ -27,7 +27,7 @@ extension `Property.Inout.Typed Tests`.Unit {
     }
 }
 
-extension `Property.Inout.Typed Tests`.`Edge Case` {
+extension `Typed inout properties write mutations through to their base`.`Sequential typed property mutations persist independently` {
 
     @Test
     func `sequential mutations each persist independently`() {
@@ -49,7 +49,7 @@ extension `Property.Inout.Typed Tests`.`Edge Case` {
     }
 }
 
-extension `Property.Inout.Typed Tests`.Integration {
+extension `Typed inout properties write mutations through to their base`.`Condition driven draining terminates through an inout property view` {
 
     @Test
     func `condition-driven drain through inout view terminates`() {

@@ -6,16 +6,16 @@ private typealias _TypedIsCopyable = Require.Copyable<Property::Property<Phantom
 private typealias _TypedIsSendable = Require.Sendable<Property::Property<Phantom, Int>.Typed<Int>>
 
 @Suite
-struct `Property.Typed Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Typed owned properties preserve their tagged values` {
+    @Suite struct `Typed property construction retains the underlying value` {}
+    @Suite struct `No typed owned property boundary cases are defined` {}
+    @Suite struct `No typed owned property integration cases are defined` {}
 }
 
-extension `Property.Typed Tests`.Unit {
+extension `Typed owned properties preserve their tagged values`.`Typed property construction retains the underlying value` {
 
     @Test
-    func `typed property basic usage`() {
+    func `Typed owned property access exposes the base value`() {
         var typed = Property::Property<Phantom, Int>.Typed<Int>(42)
         #expect(typed.base == 42)
 

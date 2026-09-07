@@ -2,7 +2,7 @@ import Property
 import Testing
 
 @Suite
-struct PropertyExportsTests {
+struct `A Property import exposes its direct core dependencies` {
     private enum Domain {}
 
     @Test

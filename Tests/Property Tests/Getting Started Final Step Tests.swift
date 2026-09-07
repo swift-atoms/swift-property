@@ -51,13 +51,13 @@ where Tag == Stack<Element>.Peek, Base == Stack<Element> {
 }
 
 @Suite
-struct `Tutorial Getting Started Final Step Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Stack properties expose pushed values and element counts` {
+    @Suite struct `Stack properties preserve populated and empty stack observations` {}
+    @Suite struct `No stack property boundary cases are defined` {}
+    @Suite struct `No stack property integration cases are defined` {}
 }
 
-extension `Tutorial Getting Started Final Step Tests`.Unit {
+extension `Stack properties expose pushed values and element counts`.`Stack properties preserve populated and empty stack observations` {
 
     @Test
     func `push.back and peek.back / peek.count compile and work as the tutorial shows`() {

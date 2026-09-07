@@ -3,13 +3,13 @@ import Property_Test_Support
 import Testing
 
 @Suite
-struct `Property.Inout.Typed.Valued Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Valued inout properties bind value parameters and preserve writes` {
+    @Suite struct `Valued inout property access binds its generic and writes through` {}
+    @Suite struct `Valued property counts remain independent of the phantom parameter` {}
+    @Suite struct `No valued inout property integration cases are defined` {}
 }
 
-extension `Property.Inout.Typed.Valued Tests`.Unit {
+extension `Valued inout properties bind value parameters and preserve writes`.`Valued inout property access binds its generic and writes through` {
 
     @Test
     func `valued accessor binds value generic in extension where-clause`() {
@@ -29,7 +29,7 @@ extension `Property.Inout.Typed.Valued Tests`.Unit {
     }
 }
 
-extension `Property.Inout.Typed.Valued Tests`.`Edge Case` {
+extension `Valued inout properties bind value parameters and preserve writes`.`Valued property counts remain independent of the phantom parameter` {
 
     @Test
     func `count is not constrained by the value generic n (phantom semantics)`() {

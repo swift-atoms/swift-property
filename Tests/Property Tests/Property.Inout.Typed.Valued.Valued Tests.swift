@@ -3,13 +3,13 @@ import Property_Test_Support
 import Testing
 
 @Suite
-struct `Property.Inout.Typed.Valued.Valued Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+struct `Inout properties bind two value parameters while preserving mutation` {
+    @Suite struct `Double valued property access binds both generics and writes through` {}
+    @Suite struct `Minimal value parameters construct a double valued property accessor` {}
+    @Suite struct `No double valued inout property integration cases are defined` {}
 }
 
-extension `Property.Inout.Typed.Valued.Valued Tests`.Unit {
+extension `Inout properties bind two value parameters while preserving mutation`.`Double valued property access binds both generics and writes through` {
 
     @Test
     func `double valued accessor binds both value generics`() {
@@ -30,7 +30,7 @@ extension `Property.Inout.Typed.Valued.Valued Tests`.Unit {
     }
 }
 
-extension `Property.Inout.Typed.Valued.Valued Tests`.`Edge Case` {
+extension `Inout properties bind two value parameters while preserving mutation`.`Minimal value parameters construct a double valued property accessor` {
 
     @Test
     func `minimum value-generics n=1 m=1 are well-formed`() {
