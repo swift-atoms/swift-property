@@ -12,34 +12,8 @@ let package = Package(
         .visionOS(.v27),
     ],
     products: [
-        .library(
-            name: "Property",
-            targets: ["Property"]
-        ),
-        .library(
-            name: "Property Carrier",
-            targets: ["Property Carrier"]
-        ),
-        .library(
-            name: "Property Typed",
-            targets: ["Property Typed"]
-        ),
-        .library(
-            name: "Property Consume",
-            targets: ["Property Consume"]
-        ),
-        .library(
-            name: "Property Inout",
-            targets: ["Property Inout"]
-        ),
-        .library(
-            name: "Property Borrow",
-            targets: ["Property Borrow"]
-        ),
-        .library(
-            name: "Property Test Support",
-            targets: ["Property Test Support"]
-        ),
+        .library(name: "Property", targets: ["Property"]),
+        .library(name: "Property Test Support", targets: ["Property Test Support"]),
     ],
     dependencies: [
         .package(
@@ -56,57 +30,18 @@ let package = Package(
         ),
     ],
     targets: [
-
         .target(
             name: "Property",
-            dependencies: []
-        ),
-
-        .target(
-            name: "Property Carrier",
             dependencies: [
-                .target(name: "Property"),
-                .product(name: "Carrier Protocol", package: "swift-carrier"),
-            ]
-        ),
-
-        .target(
-            name: "Property Typed",
-            dependencies: [
-                .target(name: "Property")
-            ]
-        ),
-        .target(
-            name: "Property Consume",
-            dependencies: [
-                .target(name: "Property")
-            ]
-        ),
-        .target(
-            name: "Property Inout",
-            dependencies: [
-                .target(name: "Property"),
-                .product(name: "Ownership Inout", package: "swift-ownership"),
+                .product(name: "Carrier", package: "swift-carrier"),
+                .product(name: "Ownership", package: "swift-ownership"),
                 .product(name: "Tagged", package: "swift-tagged"),
             ]
         ),
-        .target(
-            name: "Property Borrow",
-            dependencies: [
-                .target(name: "Property"),
-                .product(
-                    name: "Ownership Borrow",
-                    package: "swift-ownership"
-                ),
-                .product(name: "Tagged", package: "swift-tagged"),
-            ]
-        ),
-
         .testTarget(
             name: "Property Tests",
             dependencies: [
                 .target(name: "Property"),
-                .target(name: "Property Typed"),
                 .target(name: "Property Test Support"),
             ]
         ),
@@ -114,48 +49,42 @@ let package = Package(
             name: "Property Carrier Tests",
             dependencies: [
                 .target(name: "Property"),
-                .target(name: "Property Carrier"),
             ]
         ),
         .testTarget(
             name: "Property Typed Tests",
             dependencies: [
-                .target(name: "Property Typed"),
+                .target(name: "Property"),
                 .target(name: "Property Test Support"),
             ]
         ),
         .testTarget(
             name: "Property Consume Tests",
             dependencies: [
-                .target(name: "Property Consume"),
+                .target(name: "Property"),
                 .target(name: "Property Test Support"),
             ]
         ),
         .testTarget(
             name: "Property Inout Tests",
             dependencies: [
-                .target(name: "Property Inout"),
+                .target(name: "Property"),
                 .target(name: "Property Test Support"),
             ]
         ),
         .testTarget(
             name: "Property Borrow Tests",
             dependencies: [
-                .target(name: "Property Borrow"),
+                .target(name: "Property"),
                 .target(name: "Property Test Support"),
             ]
         ),
-
         .target(
             name: "Property Test Support",
             dependencies: [
                 .target(name: "Property"),
-                .target(name: "Property Typed"),
-                .target(name: "Property Consume"),
-                .target(name: "Property Inout"),
-                .target(name: "Property Borrow"),
             ],
-            path: "Tests/Property Test Support"
+            path: "Tests/Support"
         ),
     ],
     swiftLanguageModes: [.v6]

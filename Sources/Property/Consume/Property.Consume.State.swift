@@ -1,4 +1,3 @@
-public import Property
 
 #if !hasFeature(Embedded)
     public import Synchronization

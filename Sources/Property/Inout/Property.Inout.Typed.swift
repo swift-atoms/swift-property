@@ -1,5 +1,4 @@
-public import Ownership_Inout
-public import Property
+public import Ownership
 public import Tagged
 
 extension Property::Property.Inout where Base: ~Copyable {

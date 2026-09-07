@@ -1,11 +1,10 @@
-public import Ownership_Inout
-public import Property
+public import Ownership
 public import Tagged
 
-extension Property::Property.Inout.Typed where Base: ~Copyable, Element: ~Copyable {
+extension Property::Property.Inout.Typed.Valued where Base: ~Copyable, Element: ~Copyable {
 
     @safe
-    public struct Valued<let n: Int>: ~Copyable, ~Escapable {
+    public struct Valued<let m: Int>: ~Copyable, ~Escapable {
         @usableFromInline
         internal var _storage: Tagged<Tag, Ownership.Inout<Base>>
 
@@ -17,7 +16,7 @@ extension Property::Property.Inout.Typed where Base: ~Copyable, Element: ~Copyab
     }
 }
 
-extension Property::Property.Inout.Typed.Valued where Base: ~Copyable, Element: ~Copyable {
+extension Property::Property.Inout.Typed.Valued.Valued where Base: ~Copyable, Element: ~Copyable {
 
     @inlinable
     public var base: Ownership.Inout<Base> {

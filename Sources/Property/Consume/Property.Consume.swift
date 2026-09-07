@@ -1,4 +1,3 @@
-public import Property
 
 extension Property::Property where Base: Copyable {
 

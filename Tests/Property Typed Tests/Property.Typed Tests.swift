@@ -1,5 +1,5 @@
 import Property_Test_Support
-import Property_Typed
+import Property
 import Testing
 
 private typealias _TypedIsCopyable = Require.Copyable<Property::Property<Phantom, Int>.Typed<Int>>

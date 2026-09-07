@@ -1,5 +1,4 @@
-public import Ownership_Borrow
-public import Property
+public import Ownership
 public import Tagged
 
 extension Property::Property.Borrow where Base: ~Copyable {

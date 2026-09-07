@@ -1,4 +1,4 @@
-import Property_Consume
+import Property
 import Property_Test_Support
 import Testing
 

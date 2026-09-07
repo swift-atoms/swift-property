@@ -1,5 +1,4 @@
-public import Carrier_Protocol
-public import Property
+public import Carrier
 
 extension Property::Property: Carrier.`Protocol` where Base: ~Copyable {
 

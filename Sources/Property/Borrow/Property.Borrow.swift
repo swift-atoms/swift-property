@@ -1,11 +1,10 @@
-public import Ownership_Borrow
-public import Property
+@_exported public import Ownership
 public import Tagged
 
-extension Property::Property.Borrow.Typed where Base: ~Copyable, Element: ~Copyable {
+extension Property::Property where Base: ~Copyable {
 
     @safe
-    public struct Valued<let n: Int>: ~Copyable, ~Escapable {
+    public struct Borrow: ~Copyable, ~Escapable {
         @usableFromInline
         internal var _storage: Tagged<Tag, Ownership.Borrow<Base>>
 
@@ -17,7 +16,7 @@ extension Property::Property.Borrow.Typed where Base: ~Copyable, Element: ~Copya
     }
 }
 
-extension Property::Property.Borrow.Typed.Valued where Base: ~Copyable, Element: ~Copyable {
+extension Property::Property.Borrow where Base: ~Copyable {
 
     @inlinable
     public var base: Ownership.Borrow<Base> {

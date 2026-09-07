@@ -1,5 +1,4 @@
 public import Property
-public import Property_Typed
 import Testing
 
 public struct Stack<Element: Copyable>: Copyable {
