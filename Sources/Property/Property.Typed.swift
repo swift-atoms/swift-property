@@ -1,4 +1,3 @@
-
 extension Property::Property where Base: ~Copyable {
 
     public struct Typed<Element>: ~Copyable {
@@ -22,5 +21,6 @@ extension Property::Property.Typed where Base: ~Copyable {
     }
 }
 
-extension Property::Property.Typed: Copyable where Base: Copyable {}
-extension Property::Property.Typed: Sendable where Base: Sendable {}
+extension Property::Property.Typed: Swift.Copyable where Base: Swift.Copyable {}
+
+extension Property::Property.Typed: Swift.Sendable where Base: Swift.Sendable {}

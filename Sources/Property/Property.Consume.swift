@@ -1,4 +1,3 @@
-
 extension Property::Property where Base: Copyable {
 
     public struct Consume<Element>: ~Copyable {
@@ -50,4 +49,4 @@ extension Property::Property.Consume {
     }
 }
 
-extension Property::Property.Consume: Sendable where Base: Sendable {}
+extension Property::Property.Consume: Swift.Sendable where Base: Swift.Sendable {}

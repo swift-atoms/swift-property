@@ -13,8 +13,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Property", targets: ["Property"]),
-        .library(name: "Property Standard Library Integration", targets: ["Property Standard Library Integration"]),
-        .library(name: "Property Foundation Library Integration", targets: ["Property Foundation Library Integration"]),
+
+        .library(name: "Property Foundation Integration", targets: ["Property Foundation Integration"]),
         .library(name: "Property Test Support", targets: ["Property Test Support"]),
     ],
     dependencies: [
@@ -41,20 +41,13 @@ let package = Package(
             ],
             path: "Sources/Property"
         ),
+        
         .target(
-            name: "Property Standard Library Integration",
+            name: "Property Foundation Integration",
             dependencies: [
                 .target(name: "Property"),
             ],
-            path: "Sources/Property Standard Library Integration"
-        ),
-        .target(
-            name: "Property Foundation Library Integration",
-            dependencies: [
-                .target(name: "Property"),
-                .target(name: "Property Standard Library Integration"),
-            ],
-            path: "Sources/Property Foundation Library Integration"
+            path: "Sources/Property Foundation Integration"
         ),
         .target(
             name: "Property Test Support",
@@ -68,8 +61,7 @@ let package = Package(
             dependencies: [
                 .target(name: "Property"),
                 .target(name: "Property Test Support"),
-                .target(name: "Property Standard Library Integration"),
-                .target(name: "Property Foundation Library Integration"),
+                .target(name: "Property Foundation Integration"),
             ],
             path: "Tests/Property Tests"
         ),
