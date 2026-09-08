@@ -1,5 +1,5 @@
 #if !hasFeature(Embedded)
-public import Synchronization
+import Synchronization
 #endif
 
 
