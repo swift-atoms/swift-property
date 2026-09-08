@@ -18,6 +18,7 @@ let package = Package(
         .library(name: "Property Test Support", targets: ["Property Test Support"]),
     ],
     dependencies: [
+
         .package(
             url: "https://github.com/swift-atoms/swift-ownership.git",
             branch: "main"
@@ -64,6 +65,25 @@ let package = Package(
                 .target(name: "Property Foundation Integration"),
             ],
             path: "Tests/Property Tests"
+        ),
+        .testTarget(
+            name: "Consolidated Property Carrier Tests",
+            dependencies: [
+
+                .target(name: "Property"),
+                .product(name: "Carrier", package: "swift-carrier"),
+            ],
+            path: "Tests/Consolidated swift-property-carrier"
+        ),
+        .testTarget(
+            name: "Consolidated Property Ownership Tests",
+            dependencies: [
+
+                .target(name: "Property"),
+                .product(name: "Ownership", package: "swift-ownership"),
+                .product(name: "Tagged", package: "swift-tagged"),
+            ],
+            path: "Tests/Consolidated swift-property-ownership"
         ),
     ],
     swiftLanguageModes: [.v6]
