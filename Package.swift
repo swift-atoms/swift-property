@@ -13,7 +13,6 @@ let package = Package(
     ],
     products: [
         .library(name: "Property", targets: ["Property"]),
-
         .library(name: "Property Foundation Integration", targets: ["Property Foundation Integration"]),
         .library(name: "Property Test Support", targets: ["Property Test Support"]),
     ],
