@@ -13,7 +13,7 @@ extension `Borrowed properties lend their underlying values without mutation`.`B
 
     @Test
     func `Borrowed property access exposes the base value`() {
-        var box = Box(value: 42)
+        let box = Box(value: 42)
 
         #expect(box.inspect.current == 42)
         #expect(box.inspect.first == 1)
@@ -32,7 +32,7 @@ extension `Borrowed properties lend their underlying values without mutation`.`R
 
     @Test
     func `borrow accessor does not mutate`() {
-        var box = Box(value: 100)
+        let box = Box(value: 100)
 
         let first = box.inspect.current
         let second = box.inspect.current

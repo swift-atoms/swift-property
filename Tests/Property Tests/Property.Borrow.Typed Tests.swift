@@ -13,7 +13,7 @@ extension `Typed borrowed properties preserve typed value access`.`Typed borrowe
 
     @Test
     func `Typed borrowed property access exposes the base value`() {
-        var slice = Slice<Int>(count: 5)
+        let slice = Slice<Int>(count: 5)
 
         #expect(slice.peek.size == 5)
     }

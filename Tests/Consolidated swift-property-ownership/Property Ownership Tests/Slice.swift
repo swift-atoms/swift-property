@@ -1,8 +1,6 @@
-import Ownership
-import enum Ownership.Ownership
 public import Property
-public import Ownership
-public import Tagged
+import Ownership
+import Tagged
 
 public struct Slice<Element: ~Copyable>: ~Copyable {
     public var count: Int
