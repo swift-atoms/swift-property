@@ -21,6 +21,6 @@ extension Property::Property.Typed where Base: ~Copyable {
     }
 }
 
-extension Property::Property.Typed: Swift.Copyable where Base: Swift.Copyable {}
+extension Property::Property.Typed: Swift::Copyable where Base: Swift::Copyable {}
 
-extension Property::Property.Typed: Swift.Sendable where Base: Swift.Sendable {}
+extension Property::Property.Typed: Swift::Sendable where Base: Swift::Sendable {}

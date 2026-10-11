@@ -3,4 +3,4 @@ import Synchronization
 #endif
 
 
-extension Property::Property.Consume.State: @unchecked Swift.Sendable where Base: Swift.Sendable {}
+extension Property::Property.Consume.State: @unchecked Swift::Sendable where Base: Swift::Sendable {}

@@ -49,4 +49,4 @@ extension Property::Property.Consume {
     }
 }
 
-extension Property::Property.Consume: Swift.Sendable where Base: Swift.Sendable {}
+extension Property::Property.Consume: Swift::Sendable where Base: Swift::Sendable {}

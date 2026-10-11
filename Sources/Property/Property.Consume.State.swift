@@ -16,7 +16,7 @@ public import Synchronization
         }
 
         @inlinable
-        internal func withLock<Result: ~Copyable, E: Swift.Error>(
+        internal func withLock<Result: ~Copyable, E: Swift::Error>(
             _ body: (inout sending Value) throws(E) -> sending Result
         ) throws(E) -> sending Result {
             try body(&_value)

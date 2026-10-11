@@ -18,6 +18,6 @@ extension Property::Property where Base: ~Copyable {
     }
 }
 
-extension Property::Property: Swift.Copyable where Tag: ~Swift.Copyable & ~Escapable, Base: Swift.Copyable {}
+extension Property::Property: Swift::Copyable where Tag: ~Swift::Copyable & ~Escapable, Base: Swift::Copyable {}
 
-extension Property::Property: Swift.Sendable where Tag: ~Copyable & ~Escapable, Base: Swift.Sendable {}
+extension Property::Property: Swift::Sendable where Tag: ~Copyable & ~Escapable, Base: Swift::Sendable {}
