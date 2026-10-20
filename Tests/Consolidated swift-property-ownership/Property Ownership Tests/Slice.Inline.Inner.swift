@@ -1,5 +1,5 @@
-public import Property
 import Ownership
+public import Property
 import Tagged
 
 extension Slice.Inline where Element: ~Copyable {

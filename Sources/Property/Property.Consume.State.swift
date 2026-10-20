@@ -1,11 +1,10 @@
 #if !hasFeature(Embedded)
-public import Synchronization
+    public import Synchronization
 #endif
-
 
 #if !hasFeature(Embedded)
 #else
-@usableFromInline
+    @usableFromInline
     internal final class _UnsynchronizedBox<Value: ~Copyable>: @unchecked Sendable {
         @usableFromInline
         internal var _value: Value
@@ -23,7 +22,6 @@ public import Synchronization
         }
     }
 #endif
-
 
 extension Property::Property.Consume where Base: Copyable {
 

@@ -1,5 +1,5 @@
-public import Property
 import Ownership
+public import Property
 import Tagged
 
 public struct Slice<Element: ~Copyable>: ~Copyable {

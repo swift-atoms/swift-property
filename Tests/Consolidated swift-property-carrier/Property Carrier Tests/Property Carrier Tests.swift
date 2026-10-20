@@ -1,7 +1,8 @@
-import enum Carrier.Carrier
-import struct Property.Property
 import Property
 import Testing
+
+import enum Carrier.Carrier
+import struct Property.Property
 
 private enum Name {}
 

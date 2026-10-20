@@ -1,2 +1,2 @@
-@_exported public import Property
 import Foundation
+@_exported public import Property

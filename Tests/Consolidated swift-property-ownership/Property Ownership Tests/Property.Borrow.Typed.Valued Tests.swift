@@ -1,9 +1,10 @@
 import Ownership
-import enum Ownership.Ownership
-import struct Property.Property
 import Property
 import Tagged
 import Testing
+
+import enum Ownership.Ownership
+import struct Property.Property
 
 @Suite
 struct `Property.Borrow.Typed.Valued Tests` {
