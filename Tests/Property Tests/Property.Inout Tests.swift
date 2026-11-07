@@ -2,14 +2,23 @@ import Property
 import Property_Test_Support
 import Testing
 
-@Suite
-struct `Inout properties preserve pointer reads and mutations` {
+enum `Property.Inout Tests` {}
+
+extension `Property.Inout Tests` {
+    @Suite
+    struct `Inout properties preserve pointer reads and mutations` {
+    }
+}
+
+extension `Property.Inout Tests`.`Inout properties preserve pointer reads and mutations` {
     @Suite struct `Inout property access supports stored values and stable borrowing` {}
+
     @Suite struct `No inout property boundary cases are defined` {}
+
     @Suite struct `Inout property pointers expose tuple elements` {}
 }
 
-extension `Inout properties preserve pointer reads and mutations`.`Inout property access supports stored values and stable borrowing` {
+extension `Property.Inout Tests`.`Inout properties preserve pointer reads and mutations`.`Inout property access supports stored values and stable borrowing` {
 
     @Test
     func `Property pointers read stored property values`() {
@@ -68,7 +77,7 @@ extension `Inout properties preserve pointer reads and mutations`.`Inout propert
     }
 }
 
-extension `Inout properties preserve pointer reads and mutations`.`Inout property pointers expose tuple elements` {
+extension `Property.Inout Tests`.`Inout properties preserve pointer reads and mutations`.`Inout property pointers expose tuple elements` {
 
     @Test
     func `Property pointers expose tuple contents`() {

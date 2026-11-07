@@ -6,10 +6,19 @@ import Testing
 
 private typealias _StateIsSendable = Require.Sendable<Property::Property<Phantom, Int>.Consume<Int>.State>
 
-@Suite
-struct `Shared property state keeps consumption and stored values consistent` {
+enum `Property.Consume.State Tests` {}
+
+extension `Property.Consume.State Tests` {
+    @Suite
+    struct `Shared property state keeps consumption and stored values consistent` {
+    }
+}
+
+extension `Property.Consume.State Tests`.`Shared property state keeps consumption and stored values consistent` {
     @Suite struct `Consumption state preserves its initial value and Sendable constraint` {}
+
     @Suite struct `Concurrent consumption never exposes a torn shared state` {}
+
     @Suite struct `Consumption is visible to accessors sharing the same state` {}
 }
 
@@ -49,7 +58,7 @@ private func `F-003 torn-state mega-trial`(groups: Int, readerCount: Int, spin: 
     return tornObserved.load(ordering: .relaxed)
 }
 
-extension `Shared property state keeps consumption and stored values consistent`.`Concurrent consumption never exposes a torn shared state` {
+extension `Property.Consume.State Tests`.`Shared property state keeps consumption and stored values consistent`.`Concurrent consumption never exposes a torn shared state` {
 
     @Test
     func
@@ -66,7 +75,7 @@ extension `Shared property state keeps consumption and stored values consistent`
     }
 }
 
-extension `Shared property state keeps consumption and stored values consistent`.`Consumption state preserves its initial value and Sendable constraint` {
+extension `Property.Consume.State Tests`.`Shared property state keeps consumption and stored values consistent`.`Consumption state preserves its initial value and Sendable constraint` {
 
     @Test
     func `state init stores base and starts not consumed`() {
@@ -96,7 +105,7 @@ extension `Shared property state keeps consumption and stored values consistent`
     }
 }
 
-extension `Shared property state keeps consumption and stored values consistent`.`Consumption is visible to accessors sharing the same state` {
+extension `Property.Consume.State Tests`.`Shared property state keeps consumption and stored values consistent`.`Consumption is visible to accessors sharing the same state` {
 
     @Test
     func `shared state reflects consumption across Consume instances`() {

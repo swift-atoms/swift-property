@@ -2,14 +2,23 @@ import Property
 import Property_Test_Support
 import Testing
 
-@Suite
-struct `Borrowed properties lend their underlying values without mutation` {
+enum `Property.Borrow Tests` {}
+
+extension `Property.Borrow Tests` {
+    @Suite
+    struct `Borrowed properties lend their underlying values without mutation` {
+    }
+}
+
+extension `Property.Borrow Tests`.`Borrowed properties lend their underlying values without mutation` {
     @Suite struct `Borrowed property construction supports mutable and immutable bindings` {}
+
     @Suite struct `Repeated property borrowing preserves the original value` {}
+
     @Suite struct `No borrowed property integration cases are defined` {}
 }
 
-extension `Borrowed properties lend their underlying values without mutation`.`Borrowed property construction supports mutable and immutable bindings` {
+extension `Property.Borrow Tests`.`Borrowed properties lend their underlying values without mutation`.`Borrowed property construction supports mutable and immutable bindings` {
 
     @Test
     func `Borrowed property access exposes the base value`() {
@@ -28,7 +37,7 @@ extension `Borrowed properties lend their underlying values without mutation`.`B
     }
 }
 
-extension `Borrowed properties lend their underlying values without mutation`.`Repeated property borrowing preserves the original value` {
+extension `Property.Borrow Tests`.`Borrowed properties lend their underlying values without mutation`.`Repeated property borrowing preserves the original value` {
 
     @Test
     func `borrow accessor does not mutate`() {

@@ -2,14 +2,23 @@ import Property
 import Property_Test_Support
 import Testing
 
-@Suite
-struct `Typed inout properties write mutations through to their base` {
+enum `Property.Inout.Typed Tests` {}
+
+extension `Property.Inout.Typed Tests` {
+    @Suite
+    struct `Typed inout properties write mutations through to their base` {
+    }
+}
+
+extension `Property.Inout.Typed Tests`.`Typed inout properties write mutations through to their base` {
     @Suite struct `Typed inout property access preserves reads and writes` {}
+
     @Suite struct `Sequential typed property mutations persist independently` {}
+
     @Suite struct `Condition driven draining terminates through an inout property view` {}
 }
 
-extension `Typed inout properties write mutations through to their base`.`Typed inout property access preserves reads and writes` {
+extension `Property.Inout.Typed Tests`.`Typed inout properties write mutations through to their base`.`Typed inout property access preserves reads and writes` {
 
     @Test
     func `Typed inout property access exposes the base value`() {
@@ -27,7 +36,7 @@ extension `Typed inout properties write mutations through to their base`.`Typed 
     }
 }
 
-extension `Typed inout properties write mutations through to their base`.`Sequential typed property mutations persist independently` {
+extension `Property.Inout.Typed Tests`.`Typed inout properties write mutations through to their base`.`Sequential typed property mutations persist independently` {
 
     @Test
     func `sequential mutations each persist independently`() {
@@ -49,7 +58,7 @@ extension `Typed inout properties write mutations through to their base`.`Sequen
     }
 }
 
-extension `Typed inout properties write mutations through to their base`.`Condition driven draining terminates through an inout property view` {
+extension `Property.Inout.Typed Tests`.`Typed inout properties write mutations through to their base`.`Condition driven draining terminates through an inout property view` {
 
     @Test
     func `condition-driven drain through inout view terminates`() {

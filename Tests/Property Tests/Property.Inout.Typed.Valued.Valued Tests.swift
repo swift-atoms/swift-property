@@ -2,14 +2,23 @@ import Property
 import Property_Test_Support
 import Testing
 
-@Suite
-struct `Inout properties bind two value parameters while preserving mutation` {
+enum `Property.Inout.Typed.Valued.Valued Tests` {}
+
+extension `Property.Inout.Typed.Valued.Valued Tests` {
+    @Suite
+    struct `Inout properties bind two value parameters while preserving mutation` {
+    }
+}
+
+extension `Property.Inout.Typed.Valued.Valued Tests`.`Inout properties bind two value parameters while preserving mutation` {
     @Suite struct `Double valued property access binds both generics and writes through` {}
+
     @Suite struct `Minimal value parameters construct a double valued property accessor` {}
+
     @Suite struct `No double valued inout property integration cases are defined` {}
 }
 
-extension `Inout properties bind two value parameters while preserving mutation`.`Double valued property access binds both generics and writes through` {
+extension `Property.Inout.Typed.Valued.Valued Tests`.`Inout properties bind two value parameters while preserving mutation`.`Double valued property access binds both generics and writes through` {
 
     @Test
     func `double valued accessor binds both value generics`() {
@@ -30,7 +39,7 @@ extension `Inout properties bind two value parameters while preserving mutation`
     }
 }
 
-extension `Inout properties bind two value parameters while preserving mutation`.`Minimal value parameters construct a double valued property accessor` {
+extension `Property.Inout.Typed.Valued.Valued Tests`.`Inout properties bind two value parameters while preserving mutation`.`Minimal value parameters construct a double valued property accessor` {
 
     @Test
     func `minimum value-generics n=1 m=1 are well-formed`() {

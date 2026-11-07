@@ -5,14 +5,23 @@ import Testing
 private typealias _PropertyIsCopyable = Require.Copyable<Property::Property<Phantom, Int>>
 private typealias _PropertyIsSendable = Require.Sendable<Property::Property<Phantom, Int>>
 
-@Suite
-struct `Owned property access preserves values and phantom domains` {
+enum `Property Tests` {}
+
+extension `Property Tests` {
+    @Suite
+    struct `Owned property access preserves values and phantom domains` {
+    }
+}
+
+extension `Property Tests`.`Owned property access preserves values and phantom domains` {
     @Suite struct `Owned properties retain underlying values and nested tags` {}
+
     @Suite struct `No owned property boundary cases are defined` {}
+
     @Suite struct `Property operations preserve domain isolation and mutation order` {}
 }
 
-extension `Owned property access preserves values and phantom domains`.`Owned properties retain underlying values and nested tags` {
+extension `Property Tests`.`Owned property access preserves values and phantom domains`.`Owned properties retain underlying values and nested tags` {
 
     @Test
     func `Owned property construction preserves its base value`() {
@@ -31,7 +40,7 @@ extension `Owned property access preserves values and phantom domains`.`Owned pr
     }
 }
 
-extension `Owned property access preserves values and phantom domains`.`Property operations preserve domain isolation and mutation order` {
+extension `Property Tests`.`Owned property access preserves values and phantom domains`.`Property operations preserve domain isolation and mutation order` {
 
     @Test
     func `Phantom tag extensions remain isolated to their tag`() {

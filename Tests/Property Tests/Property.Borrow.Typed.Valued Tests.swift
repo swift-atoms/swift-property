@@ -2,14 +2,23 @@ import Property
 import Property_Test_Support
 import Testing
 
-@Suite
-struct `Valued borrowed properties bind their value parameter` {
+enum `Property.Borrow.Typed.Valued Tests` {}
+
+extension `Property.Borrow.Typed.Valued Tests` {
+    @Suite
+    struct `Valued borrowed properties bind their value parameter` {
+    }
+}
+
+extension `Property.Borrow.Typed.Valued Tests`.`Valued borrowed properties bind their value parameter` {
     @Suite struct `Valued borrowed accessors preserve their value generic and immutable base` {}
+
     @Suite struct `Valued property borrowing leaves its base unchanged` {}
+
     @Suite struct `No valued borrowed property integration cases are defined` {}
 }
 
-extension `Valued borrowed properties bind their value parameter`.`Valued borrowed accessors preserve their value generic and immutable base` {
+extension `Property.Borrow.Typed.Valued Tests`.`Valued borrowed properties bind their value parameter`.`Valued borrowed accessors preserve their value generic and immutable base` {
 
     @Test
     func `valued borrow accessor binds value generic in extension where-clause`() {
@@ -34,7 +43,7 @@ extension `Valued borrowed properties bind their value parameter`.`Valued borrow
     }
 }
 
-extension `Valued borrowed properties bind their value parameter`.`Valued property borrowing leaves its base unchanged` {
+extension `Property.Borrow.Typed.Valued Tests`.`Valued borrowed properties bind their value parameter`.`Valued property borrowing leaves its base unchanged` {
 
     @Test
     func `valued borrow accessor does not mutate`() {

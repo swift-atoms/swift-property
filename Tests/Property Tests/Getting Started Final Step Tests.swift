@@ -50,14 +50,23 @@ where Tag == Stack<Element>.Peek, Base == Stack<Element> {
     public var isEmpty: Bool { base._storage.isEmpty }
 }
 
-@Suite
-struct `Stack properties expose pushed values and element counts` {
+enum `Getting Started Final Step Tests` {}
+
+extension `Getting Started Final Step Tests` {
+    @Suite
+    struct `Stack properties expose pushed values and element counts` {
+    }
+}
+
+extension `Getting Started Final Step Tests`.`Stack properties expose pushed values and element counts` {
     @Suite struct `Stack properties preserve populated and empty stack observations` {}
+
     @Suite struct `No stack property boundary cases are defined` {}
+
     @Suite struct `No stack property integration cases are defined` {}
 }
 
-extension `Stack properties expose pushed values and element counts`.`Stack properties preserve populated and empty stack observations` {
+extension `Getting Started Final Step Tests`.`Stack properties expose pushed values and element counts`.`Stack properties preserve populated and empty stack observations` {
 
     @Test
     func `push.back and peek.back / peek.count compile and work as the tutorial shows`() {

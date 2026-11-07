@@ -2,14 +2,23 @@ import Property
 import Property_Test_Support
 import Testing
 
-@Suite
-struct `Valued inout properties bind value parameters and preserve writes` {
+enum `Property.Inout.Typed.Valued Tests` {}
+
+extension `Property.Inout.Typed.Valued Tests` {
+    @Suite
+    struct `Valued inout properties bind value parameters and preserve writes` {
+    }
+}
+
+extension `Property.Inout.Typed.Valued Tests`.`Valued inout properties bind value parameters and preserve writes` {
     @Suite struct `Valued inout property access binds its generic and writes through` {}
+
     @Suite struct `Valued property counts remain independent of the phantom parameter` {}
+
     @Suite struct `No valued inout property integration cases are defined` {}
 }
 
-extension `Valued inout properties bind value parameters and preserve writes`.`Valued inout property access binds its generic and writes through` {
+extension `Property.Inout.Typed.Valued Tests`.`Valued inout properties bind value parameters and preserve writes`.`Valued inout property access binds its generic and writes through` {
 
     @Test
     func `valued accessor binds value generic in extension where-clause`() {
@@ -29,7 +38,7 @@ extension `Valued inout properties bind value parameters and preserve writes`.`V
     }
 }
 
-extension `Valued inout properties bind value parameters and preserve writes`.`Valued property counts remain independent of the phantom parameter` {
+extension `Property.Inout.Typed.Valued Tests`.`Valued inout properties bind value parameters and preserve writes`.`Valued property counts remain independent of the phantom parameter` {
 
     @Test
     func `count is not constrained by the value generic n (phantom semantics)`() {
