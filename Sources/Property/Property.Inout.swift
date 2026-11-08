@@ -1,4 +1,4 @@
-@_exported public import Ownership
+public import Ownership
 public import Tagged
 
 extension Property::Property where Base: ~Copyable {
