@@ -5,7 +5,7 @@
 #if !hasFeature(Embedded)
 #else
     @usableFromInline
-    internal final class _UnsynchronizedBox<Value: ~Copyable>: @unchecked Sendable {
+    internal final class _UnsynchronizedBox<Value: ~Copyable> {
         @usableFromInline
         internal var _value: Value
 
