@@ -49,4 +49,6 @@ extension Property::Property.Consume {
     }
 }
 
-extension Property::Property.Consume: Swift::Sendable where Base: Swift::Sendable {}
+#if !hasFeature(Embedded)
+    extension Property::Property.Consume: Swift::Sendable where Base: Swift::Sendable {}
+#endif

@@ -10,14 +10,14 @@
         internal var _value: Value
 
         @inlinable
-        internal init(_ value: consuming sending Value) {
+        internal init(_ value: consuming Value) {
             self._value = value
         }
 
         @inlinable
         internal func withLock<Result: ~Copyable, E: Swift::Error>(
-            _ body: (inout sending Value) throws(E) -> sending Result
-        ) throws(E) -> sending Result {
+            _ body: (inout Value) throws(E) -> Result
+        ) throws(E) -> Result {
             try body(&_value)
         }
     }
