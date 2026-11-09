@@ -13,17 +13,6 @@ extension Property::Property where Base: ~Copyable {
         public init(_ base: inout Base) {
             self._storage = Tagged(_unchecked: Ownership.Inout(mutating: &base))
         }
-
-        @unsafe
-        @_lifetime(borrow base)
-        public init(_ base: borrowing Base) {
-            let ptr = unsafe UnsafeMutablePointer<Base>(
-                mutating: withUnsafePointer(to: base) { unsafe $0 }
-            )
-            let inoutRef = unsafe Ownership.Inout(ptr)
-            let tagged = Tagged<Tag, Ownership.Inout<Base>>(_unchecked: inoutRef)
-            unsafe (self._storage = _overrideLifetime(tagged, borrowing: base))
-        }
     }
 }
 

@@ -55,26 +55,6 @@ extension `Property.Inout Tests`.`Inout properties preserve pointer reads and mu
 
         #expect(value == 200)
     }
-
-    @Test
-    func `Unsafe borrowed property construction supports a read across module boundaries`() {
-
-        let box = Box(value: 321)
-        let accessor = unsafe Property::Property<Box.Inspect, Box>.Inout(box)
-        let first = accessor.base.value.value
-        #expect(first == 321)
-    }
-
-    @Test
-    func `Unsafe borrowed property construction preserves repeated reads across module boundaries`() {
-
-        let box = Box(value: 654)
-        let accessor = unsafe Property::Property<Box.Inspect, Box>.Inout(box)
-        let first = accessor.base.value.value
-        let second = accessor.base.value.value
-        #expect(first == 654)
-        #expect(second == 654)
-    }
 }
 
 extension `Property.Inout Tests`.`Inout properties preserve pointer reads and mutations`.`Inout property pointers expose tuple elements` {
